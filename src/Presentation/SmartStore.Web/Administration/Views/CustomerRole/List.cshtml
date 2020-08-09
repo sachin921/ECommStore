@@ -1,0 +1,52 @@
+﻿@using Telerik.Web.Mvc.UI
+@{
+    ViewBag.Title = T("Admin.Customers.CustomerRoles").Text;
+}
+
+<div class="section-header">
+    <div class="title">
+        <i class="fa fa-users"></i>
+        @T("Admin.Customers.CustomerRoles")
+    </div>
+    <div class="options">
+        <a href="@Url.Action("Create")" class="btn btn-primary">
+			<i class="fa fa-plus"></i>
+			<span>@T("Admin.Common.AddNew")</span>
+		</a>
+    </div>
+</div>
+
+<div>
+	@(Html.Telerik().Grid<CustomerRoleModel>()
+        .Name("customerroles-grid")
+        .ClientEvents(events => events.OnRowDataBound("onRowDataBound"))
+        .Columns(columns =>
+        {
+            columns.Bound(x => x.Name)
+                .ClientTemplate("<a href=\"Edit/<#= Id #>\"><#= Name #></a>");
+            columns.Bound(x => x.Active)
+                .ClientTemplate(Html.SymbolForBool("Active"))
+                .Centered();
+            columns.Bound(x => x.TaxExempt)
+                .ClientTemplate(Html.SymbolForBool("TaxExempt"))
+                .Centered();
+            columns.Bound(x => x.FreeShipping)
+                .Centered()
+                .ClientTemplate(Html.SymbolForBool("FreeShipping"));
+            columns.Bound(x => x.IsSystemRole)
+                .ClientTemplate(Html.SymbolForBool("IsSystemRole"))
+                .Centered();
+            columns.Bound(x => x.SystemName);
+        })
+        .Pageable(settings => settings.PageSize((int)ViewData["GridPageSize"]).Position(GridPagerPosition.Both))
+        .DataBinding(dataBinding => dataBinding.Ajax().Select("List", "CustomerRole"))
+        .PreserveGridState()
+        .EnableCustomBinding(true))
+</div>
+<script>
+	function onRowDataBound(e) {
+		if (!e.dataItem.Active) {
+			$(e.row).find('td').wrapInner('<span class="muted" />');
+		}
+	}
+</script>

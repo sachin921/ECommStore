@@ -1,0 +1,58 @@
+﻿@model dynamic
+
+@{
+	string dialogTitle = (string)Model.Title;
+	string dialogInfo = (string)Model.Info;
+}
+
+@{Html.SmartStore().Window()
+		.Name("uploadpackage-window")
+		.Title(dialogTitle)
+		.Size(WindowSize.Large)
+		.Content(@<text>
+			<div class="alert alert-info">
+				@dialogInfo
+			</div>
+			<div class="adminContent fu-container">
+				<div class="dropzone-container">	
+					<div class="fu-thumb"></div>
+				
+					@(Html.SmartStore().FileUploader()
+						.Name("packagefile")
+						.UploadUrl(Url.Action("UploadPackage", "Packaging"))
+						.TypeFilter(".nupkg")
+						.Multifile(false)
+						.HasTemplatePreview(true)
+						.ShowBrowseMedia(false)
+						.ShowRemoveButton(false)
+						.ShowRemoveButtonAfterUpload(false)
+						.UploadText(T("Admin.Packaging.Dialog.Upload").Text)
+						.OnUploadCompletedHandlerName("onComplete")
+					)
+				</div>
+				<div class="fu-progress">
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" style="width: 0%" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+				</div>
+			</div>
+		</text>)
+		.FooterContent(@<text>
+			<a href="#" class="btn btn-secondary btn-flat" data-dismiss="modal">
+				<span>@T("Common.Cancel")</span>
+			</a>
+		</text>)
+	  .Render();
+}
+
+<script>
+    window['onComplete'] = function (file, response) {
+        if (response.message) {
+            $("#uploadpackage-window").modal("hide");
+            displayNotification(response.message, response.success ? "success" : "error");
+        }
+        else if (response.returnUrl) {
+            location.href = response.returnUrl;
+        }
+	};
+</script>
