@@ -179,10 +179,12 @@ namespace SmartStore.Web.Controllers
                 .Select(c => 
                 {
                     var name = c.GetLocalized(y => y.Name);
+					var description = c.GetLocalized(y => y.Description);
                     var model = new CategorySummaryModel
                     {
                         Id = c.Id,
-                        Name = name
+                        Name = name,
+						Description=description
                     };
 
                     _services.DisplayControl.Announce(c);
@@ -216,7 +218,7 @@ namespace SmartStore.Web.Controllers
                         AlternateText = file?.File?.GetLocalized(x => x.Alt)?.Value.NullEmpty() ?? string.Format(T("Media.Category.ImageAlternateTextFormat"), name),
                         File = file
                     };
-
+					
                     return model;
                 })
                 .ToList();
@@ -1171,6 +1173,7 @@ namespace SmartStore.Web.Controllers
 
 			model.DisplayDeliveryTime = _catalogSettings.ShowDeliveryTimesInProductDetail;
 			model.IsShipEnabled = product.IsShipEnabled;
+			model.IsCustomiseProduct = product.IsCustomiseProduct;
 			model.DisplayDeliveryTimeAccordingToStock = product.DisplayDeliveryTimeAccordingToStock(_catalogSettings);
 
 			if (model.DeliveryTimeName.IsEmpty() && model.DisplayDeliveryTime)

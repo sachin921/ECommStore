@@ -403,6 +403,7 @@ namespace SmartStore.Data.Migrations
                     RecurringTotalCycles = c.Int(nullable: false),
                     IsShipEnabled = c.Boolean(nullable: false),
                     IsFreeShipping = c.Boolean(nullable: false),
+                    IsCustomiseProduct = c.Boolean(nullable: false),
                     AdditionalShippingCharge = c.Decimal(nullable: false, precision: 18, scale: 4),
                     IsTaxExempt = c.Boolean(nullable: false),
                     IsEsd = c.Boolean(nullable: false),

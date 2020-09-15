@@ -520,6 +520,7 @@ namespace SmartStore.Services.DataExchange.Export
 			_writer.Write("RecurringTotalCycles", entity.RecurringTotalCycles.ToString());
 			_writer.Write("IsShipEnabled", entity.IsShipEnabled.ToString());
 			_writer.Write("IsFreeShipping", entity.IsFreeShipping.ToString());
+			_writer.Write("IsCustomiseProduct", entity.IsCustomiseProduct.ToString());
 			_writer.Write("AdditionalShippingCharge", entity.AdditionalShippingCharge.ToString(_culture));
 			_writer.Write("IsTaxExempt", entity.IsTaxExempt.ToString());
 			_writer.Write("TaxCategoryId", entity.TaxCategoryId.ToString());

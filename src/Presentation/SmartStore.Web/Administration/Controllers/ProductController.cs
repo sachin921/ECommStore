@@ -248,6 +248,7 @@ namespace SmartStore.Admin.Controllers
 			p.DeliveryTimeId = m.DeliveryTimeId == 0 ? (int?)null : m.DeliveryTimeId;
             p.QuantityUnitId = m.QuantityUnitId == 0 ? (int?)null : m.QuantityUnitId;
 			p.IsFreeShipping = m.IsFreeShipping;
+			p.IsCustomiseProduct = m.IsCustomiseProduct;
 			p.AdditionalShippingCharge = m.AdditionalShippingCharge;
 			p.Weight = m.Weight;
 			p.Length = m.Length;
@@ -748,6 +749,7 @@ namespace SmartStore.Admin.Controllers
 				model.AllowCustomerReviews = true;
 				model.Published = true;
                 model.HasPreviewPicture = false;
+				model.IsCustomiseProduct = false;
 			}
 		}
 

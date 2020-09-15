@@ -389,10 +389,17 @@ namespace SmartStore.Services.Catalog.Rules
                     RuleType = RuleType.Boolean,
                     Operators = new RuleOperator[] { RuleOperator.IsEqualTo }
                 },
-                new SearchFilterDescriptor<bool>((ctx, x) => ctx.Query.FreeShippingOnly(x))
+                 new SearchFilterDescriptor<bool>((ctx, x) => ctx.Query.FreeShippingOnly(x))
                 {
                     Name = "FreeShipping",
                     DisplayName = T("Admin.Catalog.Products.Fields.IsFreeShipping"),
+                    RuleType = RuleType.Boolean,
+                    Operators = new RuleOperator[] { RuleOperator.IsEqualTo }
+                },
+                new SearchFilterDescriptor<bool>((ctx, x) => ctx.Query.IsCustomiseOnly(x))
+                {
+                    Name = "CustomiseProduct",
+                    DisplayName = T("Admin.Catalog.Products.Fields.IsCustomiseProduct"),
                     RuleType = RuleType.Boolean,
                     Operators = new RuleOperator[] { RuleOperator.IsEqualTo }
                 },

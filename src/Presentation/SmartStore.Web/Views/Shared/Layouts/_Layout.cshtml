@@ -28,55 +28,56 @@
 		Html.AddBodyCssClass("boxed");
 	}
 }
-
+<script src="~/Content/vendors/slider/skdslider.min.js"></script>
+<link href="~/Content/vendors/slider/skdslider.css" rel="stylesheet" />
 <div id="page">
-    <div class="canvas-blocker canvas-slidable"></div>
+	<div class="canvas-blocker canvas-slidable"></div>
 
-    <div class="page-main canvas-slidable">
-        @if (IsSectionDefined("header"))
+	<div class="page-main canvas-slidable">
+		@if (IsSectionDefined("header"))
 		{
-            @RenderSection("header")
+			@RenderSection("header")
 		}
 		else
 		{
-            <header id="header">
-                <div class="menubar-section d-none d-lg-block @(GetThemeVariable<bool>("inverse-menubar") ? "menubar-inverse" : "menubar-light")">
-                    <div class="container menubar-container">
-                        @{ 
+			<header id="header">
+				<div class="menubar-section d-none d-lg-block @(GetThemeVariable<bool>("inverse-menubar") ? "menubar-inverse" : "menubar-light")">
+					<div class="container menubar-container">
+						@{
 							Html.RenderAction("TopBar", "Common", new { area = "" });
 						}
-                    </div>
-                </div>
-                <div class="shopbar-section @(GetThemeVariable<bool>("inverse-shopbar") ? "shopbar-inverse" : "shopbar-light")"> 
-                    <div class="container shopbar-container">
-                        @{ 
+					</div>
+				</div>
+				<div class="shopbar-section @(GetThemeVariable<bool>("inverse-shopbar") ? "shopbar-inverse" : "shopbar-light")">
+					<div class="container shopbar-container">
+						@{
 							Html.RenderAction("ShopBar", "Common", new { area = "" });
 						}
-                    </div>
-                </div>
-                <div class="megamenu-section d-none d-lg-block">
-                    <nav class='navbar @(GetThemeVariable<bool>("inverse-navbar") ? "navbar-inverse" : "navbar-light")'>
-                        <div class="container megamenu-container">
-                            @{ Html.SmartStore().Menu().Name("Main").Render(); }
+					</div>
+				</div>
+				<div class="megamenu-section d-none d-lg-block">
+					<nav class='navbar @(GetThemeVariable<bool>("inverse-navbar") ? "navbar-inverse" : "navbar-light")'>
+						<div class="container megamenu-container">
+							@{ Html.SmartStore().Menu().Name("Main").Render(); }
 						</div>
 					</nav>
 				</div>
 			</header>
-        }
+		}
 
-        <div id="content-wrapper">
-			@{ 
+		<div id="content-wrapper">
+			@{
 				Html.RenderAction("JavaScriptDisabledWarning", "Common", new { area = "" });
 				Html.RenderWidget("content_before");
 			}
-            <section id="content" class="container">
-				@{ 
+			<section id="content" class="container">
+				@{
 					@RenderSection("teaser", required: false);
 					Html.RenderAction("Breadcrumb", "Menu", new { area = "" });
 					Html.RenderZone("teaser");
 					Html.RenderWidget("teaser");
 				}
-                <div id="content-body" class="row">
+				<div id="content-body" class="row">
 
 					@if (hasLeftCol)
 					{
@@ -90,7 +91,7 @@
 					}
 
 					<div id="content-center" class="col-lg-@mainColspan">
-						@{ 
+						@{
 							Html.RenderWidget("main_column_before");
 							@RenderBody();
 							Html.RenderWidget("main_column_after");
@@ -108,33 +109,33 @@
 						</aside>
 					}
 
-                    @{ Html.RenderWidget("content_after"); }
-                </div>
-            </section>
-        </div>
+					@{ Html.RenderWidget("content_after"); }
+				</div>
+			</section>
+		</div>
 
 		@{ Html.RenderWidget("footer_before"); }
 
-        @if (IsSectionDefined("footer"))
+		@if (IsSectionDefined("footer"))
 		{
-            @RenderSection("footer")
+			@RenderSection("footer")
 		}
 		else
 		{
-            <footer id="footer" class="@(GetThemeVariable<bool>("inverse-footer") ? "footer-inverse" : "footer-light")">
-                @{ Html.RenderAction("Footer", "Common", new { area = "" }); }
+			<footer id="footer" class="@(GetThemeVariable<bool>("inverse-footer") ? "footer-inverse" : "footer-light")">
+				@{ Html.RenderAction("Footer", "Common", new { area = "" }); }
 			</footer>
 		}
 
 		@{ Html.RenderZone("page-end"); }
-    </div>
+	</div>
 
 	<a href="#" id="scroll-top" class="scrollto d-flex align-items-center justify-content-center shadow-sm">
 		<i class="fa fa-lg fa-angle-up"></i>
 	</a>
 </div>
 
-@{ Html.RenderPartial("_Notifications"); } 
+@{ Html.RenderPartial("_Notifications"); }
 @{ Html.RenderWidget("body_end_html_tag_before"); }
 
 

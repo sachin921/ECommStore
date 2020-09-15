@@ -2338,6 +2338,12 @@
 	<LocaleResource Name="Admin.Catalog.Products.Fields.IsFreeShipping.Hint">
 		<Value>Check the box if this product comes with FREE shipping.</Value>
 	</LocaleResource>
+  <LocaleResource Name="Admin.Catalog.Products.Fields.IsCustomiseProduct">
+    <Value>Customisable</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Catalog.Products.Fields.IsCustomiseProduct.Hint">
+    <Value>Check the box if this product comes with FREE shipping</Value>
+  </LocaleResource>
 	<LocaleResource Name="Admin.Catalog.Products.Fields.IsGiftCard">
 		<Value>Is gift card</Value>
 	</LocaleResource>

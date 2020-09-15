@@ -870,6 +870,8 @@
     <Content Include="Content\vendors\drift\Drift.min.js" />
     <Content Include="Content\vendors\dropzone\js\dropzone.min.js" />
     <Content Include="Content\vendors\dropzone\js\dropzone.js" />
+    <Content Include="Content\vendors\slider\square1.min.css" />
+    <Content Include="Content\vendors\slider\square1.min.js" />
     <Content Include="Scripts\smartstore.dropzoneWrapper.js" />
     <Content Include="Content\vendors\fa5\css\all.css" />
     <Content Include="Content\vendors\fa5\css\all.min.css" />
@@ -1269,6 +1271,9 @@
     <Content Include="Themes\Flex\Content\images\star-on-12.png" />
     <Content Include="Themes\Flex\Content\images\star-on.png" />
     <Content Include="Content\Web.config" />
+    <None Include="Properties\PublishProfiles\betsyhouseoffashion.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\betsyhouseoffashion.com - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\betsyhouseoffashion.com - Web Deploy2.pubxml" />
     <None Include="Themes\Flex\Content\compiled\theme.css" />
     <Content Include="Themes\Flex\Content\images\grippy.png" />
     <Content Include="Themes\Flex\Content\_megamenu.scss" />
@@ -1863,6 +1868,8 @@
     <Content Include="Views\Shared\MediaTemplates\Text.cshtml" />
     <Content Include="Views\Shared\MediaTemplates\Bin.cshtml" />
     <Content Include="Views\Shared\MediaTemplates\_Thumbnail.cshtml" />
+    <Content Include="Views\Catalog\Partials\HomepageCategoriesSlide.cshtml" />
+    <Content Include="Views\Product\Partials\Product.Picture.Customise.cshtml" />
     <None Include="Web.EFMigrations.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

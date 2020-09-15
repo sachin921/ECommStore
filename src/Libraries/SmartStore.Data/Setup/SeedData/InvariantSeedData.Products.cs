@@ -1862,6 +1862,7 @@ namespace SmartStore.Data.Setup
                 AllowBackInStockSubscriptions = false,
                 IsShipEnabled = true,
                 IsFreeShipping = true,
+                IsCustomiseProduct = false,
                 DeliveryTimeId = thirdDeliveryTime.Id,
                 TaxCategoryId = taxCategories[TaxNameElectronics].Id
             };

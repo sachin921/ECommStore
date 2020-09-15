@@ -217,6 +217,8 @@ namespace SmartStore.Admin.Models.Catalog
 
 		[SmartResourceDisplayName("Admin.Catalog.Products.Fields.IsFreeShipping")]
 		public bool IsFreeShipping { get; set; }
+		[SmartResourceDisplayName("Admin.Catalog.Products.Fields.IsCustomiseProduct")]
+		public bool IsCustomiseProduct { get; set; }
 
 		[SmartResourceDisplayName("Admin.Catalog.Products.Fields.AdditionalShippingCharge")]
 		public decimal AdditionalShippingCharge { get; set; }

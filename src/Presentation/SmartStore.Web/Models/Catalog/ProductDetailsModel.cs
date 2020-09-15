@@ -129,6 +129,9 @@ namespace SmartStore.Web.Models.Catalog
 		public IList<ProductDetailsModel> AssociatedProducts { get; set; }
 		public bool IsAssociatedProduct { get; set; }
 
+		// Mark product Is customisable or not
+		public bool IsCustomiseProduct { get; set; }
+
 		public IList<ProductDetailsModel> BundledItems { get; set; }
 		public ProductBundleItemModel BundleItem { get; set; }
 		public bool IsBundlePart { get; set; }

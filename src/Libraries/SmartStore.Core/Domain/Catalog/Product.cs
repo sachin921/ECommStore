@@ -386,6 +386,11 @@ namespace SmartStore.Core.Domain.Catalog
 		/// </summary>
 		[DataMember]
 		public bool IsFreeShipping { get; set; }
+		/// <summary>
+		/// Gets or sets a value indicating whether the entity is customise enabled
+		/// </summary>
+		[DataMember]
+		public bool IsCustomiseProduct { get; set; }
 
 		/// <summary>
 		/// Gets or sets the additional shipping charge

@@ -14,6 +14,7 @@ namespace SmartStore.Web.Models.Catalog
         public LocalizedValue<string> Name { get; set; }
         public string Url { get; set; }
         public PictureModel PictureModel { get; set; } = new PictureModel();
+        public LocalizedValue<string> Description { get; set; }
 
         // TODO: Badges
     }

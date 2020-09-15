@@ -110,6 +110,20 @@ namespace SmartStore.Core.Domain.Orders
         }
 
         /// <summary>
+        /// Gets a value indicating whether the shopping cart item is customisable
+        /// </summary>
+        public bool IsCustomiseProduct
+        {
+            get
+            {
+                var product = this.Product;
+                if (product != null)
+                    return product.IsCustomiseProduct;
+                return true;
+            }
+        }
+
+        /// <summary>
         /// Gets a value indicating whether the shopping cart item is ship enabled
         /// </summary>
         public bool IsShipEnabled

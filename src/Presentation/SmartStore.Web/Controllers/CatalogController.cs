@@ -239,12 +239,27 @@ namespace SmartStore.Web.Controllers
 
             return PartialView(model);
         }
+		[ChildActionOnly]
+		public ActionResult HomepageCategoriesSlide()
+		{
+			var categories = _categoryService.GetAllCategoriesDisplayedOnHomePage()
+				.Where(c => _aclService.Authorize(c) && _storeMappingService.Authorize(c))
+				.ToList();
 
-        #endregion
+			var model = _helper.MapCategorySummaryModel(categories, _mediaSettings.CategoryThumbPictureSize);
 
-        #region Manufacturers
+			if (model.Count == 0)
+			{
+				return new EmptyResult();
+			}
 
-        [RewriteUrl(SslRequirement.No)]
+			return PartialView(model);
+		}
+		#endregion
+
+		#region Manufacturers
+
+		[RewriteUrl(SslRequirement.No)]
         public ActionResult Manufacturer(int manufacturerId, CatalogSearchQuery query)
         {
             var manufacturer = _manufacturerService.GetManufacturerById(manufacturerId);

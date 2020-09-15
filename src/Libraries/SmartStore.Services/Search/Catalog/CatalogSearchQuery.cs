@@ -309,8 +309,12 @@ namespace SmartStore.Services.Search
         {
             return WithFilter(SearchFilter.ByField("shipfree", value).Mandatory().ExactMatch().NotAnalyzed());
         }
+		public CatalogSearchQuery IsCustomiseOnly(bool value)
+		{
+			return WithFilter(SearchFilter.ByField("customiseproduct", value).Mandatory().ExactMatch().NotAnalyzed());
+		}
 
-        public CatalogSearchQuery TaxExemptOnly(bool value)
+		public CatalogSearchQuery TaxExemptOnly(bool value)
         {
             return WithFilter(SearchFilter.ByField("taxexempt", value).Mandatory().ExactMatch().NotAnalyzed());
         }

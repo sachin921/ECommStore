@@ -715,7 +715,8 @@ namespace SmartStore.Services.Catalog.Importer
 				row.SetProperty(context.Result, (x) => x.RecurringTotalCycles, 10);
 				row.SetProperty(context.Result, (x) => x.IsShipEnabled, true);
 				row.SetProperty(context.Result, (x) => x.IsFreeShipping);
-				row.SetProperty(context.Result, (x) => x.AdditionalShippingCharge);
+                row.SetProperty(context.Result, (x) => x.IsCustomiseProduct);
+                row.SetProperty(context.Result, (x) => x.AdditionalShippingCharge);
 				row.SetProperty(context.Result, (x) => x.IsEsd);
 				row.SetProperty(context.Result, (x) => x.IsTaxExempt);
 				row.SetProperty(context.Result, (x) => x.TaxCategoryId, 1);    // TODO: global scope
