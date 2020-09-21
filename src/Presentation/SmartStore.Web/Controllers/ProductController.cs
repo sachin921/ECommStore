@@ -183,6 +183,35 @@ namespace SmartStore.Web.Controllers
 			return View(model.ProductTemplateViewPath, model);
 		}
 
+		
+		public ActionResult ProductCustomise(int id)
+		{
+			var product = _productService.GetProductById(id);
+			ProductVariantQuery query = new ProductVariantQuery();
+			// Prepare the view model
+			var model = _helper.PrepareProductDetailsPageModel(product, query);
+
+			// Some cargo data
+			model.PictureSize = _mediaSettings.ProductDetailsPictureSize;
+		
+
+			// Breadcrumb
+			if (_catalogSettings.CategoryBreadcrumbEnabled)
+			{
+				_helper.GetCategoryBreadcrumb(_breadcrumb, ControllerContext, product);
+
+				_breadcrumb.Track(new MenuItem
+				{
+					Text = model.Name,
+					Rtl = model.Name.CurrentLanguage.Rtl,
+					EntityId = product.Id,
+					Url = Url.RouteUrl("Product", new { model.SeName })
+				});
+			}
+
+			return View(model);
+		}
+
 		[ChildActionOnly]
 		public ActionResult ReviewSummary(int id /* productId */)
 		{

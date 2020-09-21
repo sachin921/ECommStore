@@ -20,6 +20,7 @@
 
     [class*="slideshow"] {
         height: 450px;
+        max-width:100%;
         margin: 0 auto 40px;
         outline: none;
     }
@@ -44,17 +45,41 @@
 <div class="artlist-12-cols">
     <div class="container">
         <div class="slideshow example-1">
-            @foreach (var item in Model)
-            {
-                var picture = item.PictureModel;
-            <a href="@item.Url">
-                <div>
+            @*@foreach (var item in Model)
+        {
+            var picture = item.PictureModel;
+        <a href="@item.Url">
+            <div class="current_slide" style="width: 530px; height: 630px;">
 
-                    <img src="@picture.ImageUrl" alt="@picture.AlternateText" loading="lazy" />
+                <img src="@picture.FullSizeImageUrl"  alt="@picture.AlternateText" loading="lazy" />
+            </div>
+        </a>
+
+        }*@
+            <a href="#">
+                <div class="current_slide" style="width: 530px; height: 630px;">
+
+                    <img src="~/Content/vendors/slider/images/slider/slide1.jpg" alt="" loading="lazy" />
                 </div>
             </a>
-                <!--Slider Description example-->
-            }
+            <a href="#">
+                <div class="current_slide" style="width: 530px; height: 630px;">
+
+                    <img src="~/Content/vendors/slider/images/slider/slide2.jpg" alt="" loading="lazy" />
+                </div>
+            </a>
+            <a href="#">
+                <div class="current_slide" style="width: 530px; height: 630px;">
+
+                    <img src="~/Content/vendors/slider/images/slider/slide3.jpg" alt="" loading="lazy" />
+                </div>
+            </a>
+            <a href="#">
+                <div class="current_slide" style="width: 530px; height: 630px;">
+
+                    <img src="~/Content/vendors/slider/images/slider/slide4.jpg" alt="" loading="lazy" />
+                </div>
+            </a>
         </div>
         </div>
 

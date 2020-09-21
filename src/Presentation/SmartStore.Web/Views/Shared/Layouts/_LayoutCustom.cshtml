@@ -1,0 +1,121 @@
+﻿@model dynamic
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+<html @Html.LanguageAttributes()>
+<head>
+    <meta charset="utf-8">
+    <title>@Html.SmartTitle(false)</title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Content/editor/fabric.js"></script>
+    <script type="text/javascript" src="~/Content/editor/tshirtEditor.js"></script>
+    <script type="text/javascript" src="~/Content/editor/jquery.miniColors.min.js"></script>
+
+    <!-- Le styles -->
+    <link type="text/css" rel="stylesheet" href="~/Content/editor/css/jquery.miniColors.css" />
+    <link href="~/Content/editor/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/editor/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <script type="text/javascript">
+    </script>
+    <style type="text/css">
+        .footer {
+            padding: 70px 0;
+            margin-top: 70px;
+            border-top: 1px solid #E5E5E5;
+            background-color: whiteSmoke;
+        }
+
+        body {
+            padding-top: 60px;
+        }
+
+        .color-preview {
+            border: 1px solid #CCC;
+            margin: 2px;
+            zoom: 1;
+            vertical-align: top;
+            display: inline-block;
+            cursor: pointer;
+            overflow: hidden;
+            width: 20px;
+            height: 20px;
+        }
+
+        .rotate {
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            /* filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1.5); */
+            -ms-transform: rotate(90deg);
+        }
+
+        .Arial {
+            font-family: "Arial";
+        }
+
+        .Helvetica {
+            font-family: "Helvetica";
+        }
+
+        .MyriadPro {
+            font-family: "Myriad Pro";
+        }
+
+        .Delicious {
+            font-family: "Delicious";
+        }
+
+        .Verdana {
+            font-family: "Verdana";
+        }
+
+        .Georgia {
+            font-family: "Georgia";
+        }
+
+        .Courier {
+            font-family: "Courier";
+        }
+
+        .ComicSansMS {
+            font-family: "Comic Sans MS";
+        }
+
+        .Impact {
+            font-family: "Impact";
+        }
+
+        .Monaco {
+            font-family: "Monaco";
+        }
+
+        .Optima {
+            font-family: "Optima";
+        }
+
+        .HoeflerText {
+            font-family: "Hoefler Text";
+        }
+
+        .Plaster {
+            font-family: "Plaster";
+        }
+
+        .Engagement {
+            font-family: "Engagement";
+        }
+    </style>
+</head>
+<body class="preview" data-spy="scroll" data-target=".subnav" data-offset="80">
+
+    @RenderBody()
+    <script src="~/Content/editor/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
