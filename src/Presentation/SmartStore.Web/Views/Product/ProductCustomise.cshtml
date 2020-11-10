@@ -35,6 +35,7 @@
     Html.AddCustomHeadParts("<meta property='og:title' content='{0}' />".FormatInvariant(Html.Encode(Model.Name.Value)));
     Html.AddCustomHeadParts("<meta property='twitter:card' content='product' />");
     Html.AddCustomHeadParts("<meta property='twitter:title' content='{0}' />".FormatInvariant(Html.Encode(Model.Name)));
+    var customeImagedata = "";
 }
 
 <div class="page product-details-page">
@@ -92,7 +93,7 @@
                                 <div class="tab-pane" id="tab2">
                                     <div class="well">
                                         <div class="input-append">
-                                            <input class="span2" id="text-string" type="text" placeholder="add text here..."><button id="add-text" class="btn" title="Add text"><i class="icon-share-alt"></i></button>
+                                            <input class="span2" id="text-string" type="text" placeholder="add text here..."><button id="add-text" type="button" class="btn" title="Add text"><i class="icon-share-alt"></i></button>
                                             <hr>
                                         </div>
                                         <div id="avatarlist">
@@ -149,7 +150,11 @@
                         </div>
                         <!--	EDITOR      -->
                         <div id="shirtDiv" class="page" style="width: 530px; height: 630px; position: relative; background-color: rgb(255, 255, 255);">
-                            <img id="tshirtFacing" src="@Model.DetailsPictureModel.PictureModels[0].ImageUrl"></img>
+                            <img id="tshirtFacing" src="@Model.DetailsPictureModel.PictureModels[0].ImageUrl">
+                            <div style="display:none">
+                                <canvas id="upperCanvas" width=530 height="630" class="hover" style="-webkit-user-select: none;"></canvas>
+                            </div>
+                            
                             <div id="drawingArea" style="position: absolute;top: 100px;left: 160px;z-index: 10;width: 200px;height: 400px;">
                                 <canvas id="tcanvas" width=200 height="400" class="hover" style="-webkit-user-select: none;"></canvas>
                             </div>
@@ -165,19 +170,14 @@
 
                     <div class="span3">
                         <div class="well">
+                            
                             <div class="col flex-grow-1">
-                                <a class="btn btn-primary btn-lg btn-block btn-add-to-cart ajax-cart-link"
-                                   href="#"
-                                   rel="nofollow"
-                                   data-href='@Url.Action("AddProduct", "ShoppingCart", new { productId = Model.AddToCart.ProductId, shoppingCartTypeId = 1 })'
-                                   data-form-selector="#pd-form"
-                                   data-type="cart"
-                                   data-action="add"
-                                   data-toggle="offcanvas" data-target="#offcanvas-cart">
-                                    <i class="fa fa-cart-arrow-down d-none d-sm-inline-block d-md-none d-xl-inline-block"></i>
-                                    <span>Save Design</span>
-                                </a>
+                                <input class="btn btn-primary btn-lg btn-block btn-add-to-cart ajax-cart-link" type="button" id="imageButton" onclick="viewimage()" name="name" value="Save" />
+                                <input class="btn btn-primary btn-lg btn-block btn-add-to-cart ajax-cart-link" type="submit" id="btnSubmit"  name="name" value="Close" />
+                                <input type="hidden" id="CustomeImage" name="CustomeImage" />
                             </div>
+                            
+
 
                         </div>
                     </div>
@@ -186,6 +186,36 @@
 
             </section>
         </div><!-- /container -->
+        <script>
+            $(document).ready(function () {
+                $("#btnSubmit").css('display', 'none');
+            });
+
+            function viewimage() {
+                $("#btnSubmit").css('display', 'block');
+                $("#imageButton").css('display', 'none');
+                var c = document.getElementById("tcanvas");
+
+                var ctx = c.getContext("2d");
+
+                var img = document.getElementById("tshirtFacing");
+                ctx.drawImage(img, 510, 610);
+                //ctx.drawImage(img, 5, 30);
+
+                var c2 = document.getElementById("upperCanvas");
+
+                var ctx2 = c2.getContext("2d");
+
+
+                ctx2.drawImage(img, 0, 50)
+                ctx2.drawImage(c, 200, 200, 200, 400);
+
+                var imagedata = document.getElementById("CustomeImage");
+                var image = c2.toDataURL("image/png");
+                imagedata.value = image;  
+               
+            }	 
+        </script>
     }
         <!-- Footer ================================================== -->
         <footer class="footer">

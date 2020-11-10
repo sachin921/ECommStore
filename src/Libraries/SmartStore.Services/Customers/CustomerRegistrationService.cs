@@ -75,7 +75,7 @@ namespace SmartStore.Services.Customers
                     pwd = password;
                     break;
             }
-            var validpass = _encryptionService.DecryptText(pwd);
+            //var validpass = _encryptionService.DecryptText(pwd);
             bool isValid = pwd == customer.Password;
 
             //save last login date

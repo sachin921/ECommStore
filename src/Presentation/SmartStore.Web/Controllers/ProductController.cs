@@ -113,7 +113,7 @@ namespace SmartStore.Web.Controllers
 		#region Products
 
 		[RewriteUrl(SslRequirement.No)]
-		public ActionResult ProductDetails(int productId, string attributes, ProductVariantQuery query)
+		public ActionResult ProductDetails(int productId, string attributes, ProductVariantQuery query,string CustomeImage="")
 		{
 			var product = _productService.GetProductById(productId);
 			if (product == null || product.Deleted || product.IsSystemProduct)
@@ -159,6 +159,11 @@ namespace SmartStore.Web.Controllers
 			// Some cargo data
 			model.PictureSize = _mediaSettings.ProductDetailsPictureSize;
 			model.CanonicalUrlsEnabled = _seoSettings.CanonicalUrlsEnabled;
+			if(!string.IsNullOrEmpty(CustomeImage))
+            {
+				model.DetailsPictureModel.CustomeImage = CustomeImage;
+                Session["CustomeImage"] = CustomeImage;
+			}
 
 			// Save as recently viewed
 			_recentlyViewedProductsService.AddProductToRecentlyViewedList(product.Id);
@@ -211,6 +216,7 @@ namespace SmartStore.Web.Controllers
 
 			return View(model);
 		}
+			
 
 		[ChildActionOnly]
 		public ActionResult ReviewSummary(int id /* productId */)

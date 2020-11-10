@@ -1227,7 +1227,8 @@ namespace SmartStore.Services.Orders
                         CartType = ctx.CartType,
                         Quantity = bundleItem.Quantity,
                         AddRequiredProducts = ctx.AddRequiredProducts,
-                        StoreId = storeId
+                        StoreId = storeId,
+                        CustomeImage=ctx.CustomeImage
                     });
 
                     if (ctx.Warnings.Count > 0)
@@ -1249,7 +1250,7 @@ namespace SmartStore.Services.Orders
             if (ctx.Warnings.Count == 0 && ctx.Item != null)
             {
                 var customer = ctx.Customer ?? _workContext.CurrentCustomer;
-
+                ctx.Item.CustomeImage = ctx.CustomeImage;
                 customer.ShoppingCartItems.Add(ctx.Item);
                 _customerService.UpdateCustomer(customer);
 

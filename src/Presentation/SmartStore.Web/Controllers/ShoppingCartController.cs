@@ -1139,6 +1139,8 @@ namespace SmartStore.Web.Controllers
                     {
                         cartItemModel.Picture = PrepareCartItemPictureModel(product, _mediaSettings.MiniCartThumbPictureSize, cartItemModel.ProductName, item.AttributesXml);
                     }
+                    if (!string.IsNullOrEmpty(sci.Item.CustomeImage))
+                        cartItemModel.Picture.ImageUrl = sci.Item.CustomeImage;
 
                     model.Items.Add(cartItemModel);
                 }
@@ -1458,14 +1460,15 @@ namespace SmartStore.Web.Controllers
             //save item
             var cartType = (ShoppingCartType)shoppingCartTypeId;
 
-			var addToCartContext = new AddToCartContext
-			{
-				Product = product,
-				VariantQuery = query,
-				CartType = cartType,
-				CustomerEnteredPrice = customerEnteredPriceConverted,
-				Quantity = quantity,
-				AddRequiredProducts = true
+            var addToCartContext = new AddToCartContext
+            {
+                Product = product,
+                VariantQuery = query,
+                CartType = cartType,
+                CustomerEnteredPrice = customerEnteredPriceConverted,
+                Quantity = quantity,
+                AddRequiredProducts = true,
+                CustomeImage = Session["CustomeImage"] != null ? Session["CustomeImage"].ToString() : null
 			};
 
 			_shoppingCartService.AddToCart(addToCartContext);

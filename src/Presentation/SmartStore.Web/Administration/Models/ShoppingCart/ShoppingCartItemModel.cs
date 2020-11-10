@@ -23,5 +23,6 @@ namespace SmartStore.Admin.Models.ShoppingCart
         public string Total { get; set; }
         [SmartResourceDisplayName("Admin.CurrentCarts.UpdatedOn")]
         public DateTime UpdatedOn { get; set; }
+        public string CustomeImage { get; set; }
     }
 }

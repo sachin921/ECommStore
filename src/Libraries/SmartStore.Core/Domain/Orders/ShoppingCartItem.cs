@@ -46,6 +46,11 @@ namespace SmartStore.Core.Domain.Orders
         public string AttributesXml { get; set; }
 
         /// <summary>
+        /// Gets or sets the product custome image
+        /// </summary>
+        public string CustomeImage { get; set; }
+
+        /// <summary>
         /// Gets or sets the price enter by a customer
         /// </summary>
         public decimal CustomerEnteredPrice { get; set; }

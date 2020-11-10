@@ -24,7 +24,7 @@
         bundleItemId = Model.BundleItem.Id,
         itemType = (string)null // TODO: (mc) WTF!?
     });
-    var isCustomse = Model.IsCustomiseProduct;
+    var isCustomse = true;//Model.IsCustomiseProduct;
     var shortDescription = Model.ShortDescription.Value.HasValue() ? Model.ShortDescription : Model.MetaDescription;
 
     // FB OpenGraph og:* & Twitter card

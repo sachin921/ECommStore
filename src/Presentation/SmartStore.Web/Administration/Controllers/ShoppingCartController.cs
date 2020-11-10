@@ -175,6 +175,7 @@ namespace SmartStore.Admin.Controllers
                     Id = sci.Item.Id,
                     Store = store?.Name?.NaIfEmpty(),
                     ProductId = sci.Item.ProductId,
+                    CustomeImage=sci.Item.CustomeImage,
                     Quantity = sci.Item.Quantity,
                     ProductName = sci.Item.Product.GetLocalized(x => x.Name),
                     ProductTypeName = sci.Item.Product.GetProductTypeLabel(Services.Localization),

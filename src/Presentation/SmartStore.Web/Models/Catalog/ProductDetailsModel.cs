@@ -140,7 +140,7 @@ namespace SmartStore.Web.Models.Catalog
 		public bool TellAFriendEnabled { get; set; }
 		public bool AskQuestionEnabled { get; set; }
 		public string ProductShareCode { get; set; }
-
+		
 		public IDictionary<string, ActionItemModel> ActionItems { get; set; }
 
 		#region Nested Classes
@@ -308,5 +308,6 @@ namespace SmartStore.Web.Models.Catalog
 		public PictureModel DefaultPictureModel { get; set; }
 		public IList<PictureModel> PictureModels { get; set; }
 		public int GalleryStartIndex { get; set; }
+		public string CustomeImage { get; set; }
 	}
 }

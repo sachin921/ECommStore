@@ -486,6 +486,10 @@
     <Compile Include="Migrations\202009211658151_CustomiseProduct.Designer.cs">
       <DependentUpon>202009211658151_CustomiseProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010052334089_customimage.cs" />
+    <Compile Include="Migrations\202010052334089_customimage.Designer.cs">
+      <DependentUpon>202010052334089_customimage.cs</DependentUpon>
+    </Compile>
     <Compile Include="ObjectContextBase.SaveChanges.cs" />
     <Compile Include="Setup\Builder\ActivityLogTypeMigrator.cs" />
     <Compile Include="Setup\Builder\SettingsBuilder.cs" />
@@ -880,6 +884,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009211658151_CustomiseProduct.resx">
       <DependentUpon>202009211658151_CustomiseProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010052334089_customimage.resx">
+      <DependentUpon>202010052334089_customimage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sql\Indexes.sql" />
     <EmbeddedResource Include="Sql\StoredProcedures.sql" />

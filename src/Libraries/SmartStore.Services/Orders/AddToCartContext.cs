@@ -30,8 +30,8 @@ namespace SmartStore.Services.Orders
 		public int Quantity { get; set; }
 		public bool AddRequiredProducts { get; set; }
 		public int? StoreId { get; set; }
-
-		public int BundleItemId
+        public string CustomeImage { get; set; }
+        public int BundleItemId
 		{
 			get
 			{

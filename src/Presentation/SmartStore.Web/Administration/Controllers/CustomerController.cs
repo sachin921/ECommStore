@@ -1694,6 +1694,7 @@ namespace SmartStore.Admin.Controllers
                         Store = store != null ? store.Name : "".NaIfEmpty(),
                         ProductId = sci.Item.ProductId,
                         Quantity = sci.Item.Quantity,
+                        CustomeImage=sci.Item.CustomeImage,
                         ProductName = sci.Item.Product.Name,
                         ProductTypeName = sci.Item.Product.GetProductTypeLabel(Services.Localization),
                         ProductTypeLabelHint = sci.Item.Product.ProductTypeLabelHint,
